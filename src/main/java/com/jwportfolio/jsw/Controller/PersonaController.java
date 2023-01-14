@@ -18,7 +18,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 
 @RestController
-@CrossOrigin(origins = {"https://frontendprueba-291f0.web.app/home","http://localhost:4200"})
+@CrossOrigin(origins = {"https://frontendprueba-291f0.web.app","http://localhost:4200"})
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
