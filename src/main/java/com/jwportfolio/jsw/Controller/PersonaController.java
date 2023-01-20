@@ -22,7 +22,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
-    @GetMapping("personas/traer")
+    @GetMapping("/personas/traer")
     public List<Persona> getPersona(){
         return ipersonaService.getPersona();
     }
@@ -57,7 +57,7 @@ public class PersonaController {
         return persona;
     }
     
-    @GetMapping("personas/traer/perfil")
+    @GetMapping("/personas/traer/perfil")
     public Persona findPersona(){
         return ipersonaService.findPersona((long)1);
     }
