@@ -40,6 +40,6 @@ public class Shys {
     }
     
     public boolean existsByNombre(String nombre) {
-        return rhys.existByNombre(nombre);
+        return rhys.existsByNombre(nombre);
     }
 }

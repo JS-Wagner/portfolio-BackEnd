@@ -1,7 +1,7 @@
 
 package com.jwportfolio.jsw.Controller;
 
-import com.jwportfolio.jsw.Dto.dtohys;
+import com.jwportfolio.jsw.Dto.dtoHys;
 import com.jwportfolio.jsw.Entity.hys;
 import com.jwportfolio.jsw.Security.Controller.Mensaje;
 import com.jwportfolio.jsw.Service.Shys;
@@ -53,7 +53,7 @@ public class Chys {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtohys dtohys) {
+    public ResponseEntity<?> create(@RequestBody dtoHys dtohys) {
         if (StringUtils.isBlank(dtohys.getNombre())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
@@ -68,7 +68,7 @@ public class Chys {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtohys dtohys) {
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoHys dtohys) {
         //Validamos si existe el ID
         if (!shys.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
