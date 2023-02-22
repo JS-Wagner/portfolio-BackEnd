@@ -22,63 +22,73 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = {"https://frontendprueba-291f0.web.app","http://localhost:4200"})
-@RequestMapping("/hys")
+@RequestMapping("/skill")
 public class Chys {
+
     @Autowired
     Shys shys;
-    
+
     @GetMapping("/lista")
-    public ResponseEntity<List<hys>> list(){
+    public ResponseEntity<List<hys>> list() {
         List<hys> list = shys.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    
+
     @GetMapping("/detail/{id}")
-    public ResponseEntity<hys> getById(@PathVariable("id") int id){
-        if(!shys.existsById(id))
+    public ResponseEntity<hys> getById(@PathVariable("id") int id) {
+        if (!shys.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        }
         hys hYs = shys.getOne(id).get();
         return new ResponseEntity(hYs, HttpStatus.OK);
     }
-    
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!shys.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
         }
         shys.delete(id);
-        return new ResponseEntity(new Mensaje("skill eliminado"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Skill eliminado"), HttpStatus.OK);
     }
-    
+
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtohys dtohYs) {
-        if(StringUtils.isBlank(dtohYs.getNombre()))
+    public ResponseEntity<?> create(@RequestBody dtohys dtohys) {
+        if (StringUtils.isBlank(dtohys.getNombre())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if(shys.existsByNombre(dtohYs.getNombre()))
+        }
+        if (shys.existsByNombre(dtohys.getNombre())) {
             return new ResponseEntity(new Mensaje("Esa skill ya existe"), HttpStatus.BAD_REQUEST);
-        hys hYs = new hys(dtohYs.getNombre(), dtohYs.getPorcentaje());
+        }
+
+        hys hYs = new hys(dtohys.getNombre(), dtohys.getPorcentaje());
         shys.save(hYs);
+
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
     }
-    
+
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtohys dtohYs) {
-        //Validacion para ver si existe el ID
-        if(!shys.existsById(id))
-            return new ResponseEntity(new Mensaje("El id no existe"), HttpStatus.BAD_REQUEST);
-        //Compara nombres para que no sean iguales
-        if(shys.existsByNombre(dtohYs.getNombre()) && shys.getByNombre(dtohYs.getNombre()).get().getId() != id)
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtohys dtohys) {
+        //Validamos si existe el ID
+        if (!shys.existsById(id)) {
+            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+        }
+        //Compara nombre de skills
+        if (shys.existsByNombre(dtohys.getNombre()) && shys.getByNombre(dtohys.getNombre()).get()
+                .getId() != id) {
             return new ResponseEntity(new Mensaje("Esa skill ya existe"), HttpStatus.BAD_REQUEST);
-        //No puede ser vacío
-        if(StringUtils.isBlank(dtohYs.getNombre()))
-            return new ResponseEntity(new Mensaje("El nombre no puede estar en blanco"), HttpStatus.BAD_REQUEST);
-        
-        hys hYs = shys.getOne(id). get();
-        hYs.setNombre(dtohYs.getNombre());
-        hYs.setPorcentaje(dtohYs.getPorcentaje());
-        
+        }
+        //No puede estar vacio
+        if (StringUtils.isBlank(dtohys.getNombre())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+
+        hys hYs = shys.getOne(id).get();
+        hYs.setNombre(dtohys.getNombre());
+        hYs.setPorcentaje(dtohys.getPorcentaje());
+
         shys.save(hYs);
         return new ResponseEntity(new Mensaje("Skill actualizada"), HttpStatus.OK);
-        
+
     }
 }

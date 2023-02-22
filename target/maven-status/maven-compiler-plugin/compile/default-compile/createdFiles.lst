@@ -1,5 +1,6 @@
 com\jwportfolio\jsw\Repository\IPersonaRepository.class
 com\jwportfolio\jsw\Security\Entity\UsuarioPrincipal.class
+com\jwportfolio\jsw\Controller\Chys.class
 com\jwportfolio\jsw\Security\Service\RolService.class
 com\jwportfolio\jsw\Entity\Persona.class
 com\jwportfolio\jsw\Security\Service\UsuarioService.class
@@ -7,6 +8,7 @@ com\jwportfolio\jsw\Repository\RProyecto.class
 com\jwportfolio\jsw\Service\SExperiencia.class
 com\jwportfolio\jsw\Security\jwt\JwtTokenFilter.class
 com\jwportfolio\jsw\Security\Service\UserDetailsImpl.class
+com\jwportfolio\jsw\Dto\dtohys.class
 com\jwportfolio\jsw\Security\Dto\JwtDto.class
 com\jwportfolio\jsw\Entity\Experiencia.class
 com\jwportfolio\jsw\Controller\CEducacion.class
@@ -26,12 +28,15 @@ com\jwportfolio\jsw\Entity\Proyecto.class
 com\jwportfolio\jsw\Security\Enums\RolNombre.class
 com\jwportfolio\jsw\Service\SProyecto.class
 com\jwportfolio\jsw\Repository\RExperiencia.class
+com\jwportfolio\jsw\Service\Shys.class
 com\jwportfolio\jsw\Security\Entity\Rol.class
 com\jwportfolio\jsw\Security\Dto\LoginUsuario.class
 com\jwportfolio\jsw\Security\Controller\AuthController.class
 com\jwportfolio\jsw\Security\Repository\IRolRepository.class
+com\jwportfolio\jsw\Entity\hys.class
 com\jwportfolio\jsw\Repository\REducacion.class
 com\jwportfolio\jsw\Security\Entity\Usuario.class
+com\jwportfolio\jsw\Repository\Rhys.class
 com\jwportfolio\jsw\Dto\dtoEducacion.class
 com\jwportfolio\jsw\Interface\IPersonaService.class
 com\jwportfolio\jsw\Security\Dto\NuevoUsuario.class
