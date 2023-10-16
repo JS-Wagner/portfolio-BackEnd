@@ -1,0 +1,28 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      DB_URL: jdbc:mysql://usp8x2mgscsckhot:jGXzcDhP0vPFS6FI8CVe@bndwcgusqjklamjmkkgp-mysql.services.clever-cloud.com:3306/bndwcgusqjklamjmkkgp
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Build and deploy
+        run: |
+          # Tu comando de construcción y despliegue aquí
