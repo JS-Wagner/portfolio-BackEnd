@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Proyecto {
@@ -13,15 +14,17 @@ public class Proyecto {
     private int id;
     private String nombreE;
     private String descripcionE;
+    private String fechaE;
     
     //Constructor
 
     public Proyecto() {
     }
 
-    public Proyecto(String nombreE, String descripcionE) {
+    public Proyecto(String nombreE, String descripcionE, String fechaE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.fechaE = fechaE;
     }
     
     //Getters & Setters
@@ -50,5 +53,7 @@ public class Proyecto {
         this.descripcionE = descripcionE;
     }
     
-    
+    public String getFechaE() {return this.fechaE;}
+
+    public void setFechaE(String fechaE) {this.fechaE = fechaE;}
 }

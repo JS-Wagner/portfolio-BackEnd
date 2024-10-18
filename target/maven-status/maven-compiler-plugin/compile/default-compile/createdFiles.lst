@@ -28,6 +28,7 @@ com\jwportfolio\jsw\Entity\Proyecto.class
 com\jwportfolio\jsw\Security\Enums\RolNombre.class
 com\jwportfolio\jsw\Service\SProyecto.class
 com\jwportfolio\jsw\Repository\RExperiencia.class
+com\jwportfolio\jsw\Service\Shys.class
 com\jwportfolio\jsw\Security\Entity\Rol.class
 com\jwportfolio\jsw\Security\Dto\LoginUsuario.class
 com\jwportfolio\jsw\Security\Controller\AuthController.class
