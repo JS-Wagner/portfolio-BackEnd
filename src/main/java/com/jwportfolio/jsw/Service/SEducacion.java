@@ -43,4 +43,9 @@ public class SEducacion {
     public boolean existsByNombreE(String nombreE) {
         return rEducacion.existsByNombreE(nombreE);
     }
+
+    public void eliminarEducacionesTemporales() {
+        List<Educacion> experienciasTemporales = rEducacion.findByTemporalTrue();
+        rEducacion.deleteAll(experienciasTemporales);
+    }
 }

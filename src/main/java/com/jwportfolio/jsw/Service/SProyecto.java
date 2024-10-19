@@ -42,4 +42,9 @@ public class SProyecto {
     public boolean existsByNombreE(String nombreE) {
         return rProyecto.existsByNombreE(nombreE);
     }
+
+    public void eliminarProyectosTemporales() {
+        List<Proyecto> proyectosTemporales = rProyecto.findByTemporalTrue();
+        rProyecto.deleteAll(proyectosTemporales);
+    }
 }

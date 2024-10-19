@@ -1,10 +1,9 @@
 
 package com.jwportfolio.jsw.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.jwportfolio.jsw.Security.Entity.Usuario;
+
+import javax.persistence.*;
 
 @Entity
 public class Educacion {
@@ -14,16 +13,23 @@ public class Educacion {
     private String nombreE;
     private String descripcionE;
     private String fechaE;
+    private boolean temporal;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario; // Campo para almacenar el usuario que creó la educación
     
     //Constructor
 
     public Educacion() {
     }
 
-    public Educacion(String nombreE, String descripcionE, String fechaE) {
+    public Educacion(String nombreE, String descripcionE, String fechaE, boolean temporal, Usuario usuario) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         this.fechaE = fechaE;
+        this.temporal = temporal;
+        this.usuario = usuario;
     }
     
     //Getters & Setters
@@ -55,5 +61,12 @@ public class Educacion {
     public String getFechaE() {return this.fechaE;}
 
     public void setFechaE(String fechaE) {this.fechaE = fechaE;}
-    
+
+    public boolean isTemporal() {return this.temporal;}
+
+    public void setTemporal(boolean temporal) {this.temporal = temporal;}
+
+    public Usuario getUsuario() {return usuario;}
+
+    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
 }

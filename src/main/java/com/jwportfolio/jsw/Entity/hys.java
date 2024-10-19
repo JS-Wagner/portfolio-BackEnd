@@ -1,10 +1,9 @@
 
 package com.jwportfolio.jsw.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.jwportfolio.jsw.Security.Entity.Usuario;
+
+import javax.persistence.*;
 
 @Entity
 public class hys {
@@ -13,13 +12,20 @@ public class hys {
     private int id;
     private String nombre;
     private int porcentaje;
+    private boolean temporal;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario; // Campo para almacenar el usuario que creó la educación
 
     public hys() {
     }
 
-    public hys(String nombre, int porcentaje) {
+    public hys(String nombre, int porcentaje, boolean temporal, Usuario usuario) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
+        this.temporal = temporal;
+        this.usuario = usuario;
     }
 
     public int getId() {
@@ -45,6 +51,12 @@ public class hys {
     public void setPorcentaje(int porcentaje) {
         this.porcentaje = porcentaje;
     }
-    
-    
+
+    public boolean isTemporal() {return this.temporal;}
+
+    public void setTemporal(boolean temporal) {this.temporal = temporal;}
+
+    public Usuario getUsuario() {return usuario;}
+
+    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
 }

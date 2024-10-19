@@ -18,6 +18,7 @@ com\jwportfolio\jsw\Controller\CProyecto.class
 com\jwportfolio\jsw\Controller\PersonaController.class
 com\jwportfolio\jsw\Security\jwt\JwtProvider.class
 com\jwportfolio\jsw\Security\Repository\IUsuarioRepository.class
+com\jwportfolio\jsw\Service\TemporalEntriesCleanupService.class
 com\jwportfolio\jsw\Service\ImpPersonaService.class
 com\jwportfolio\jsw\Dto\dtoExperiencia.class
 com\jwportfolio\jsw\Security\MainSecurity.class

@@ -42,4 +42,9 @@ public class SExperiencia {
     public boolean existsByNombreE(String nombreE) {
         return rExperiencia.existsByNombreE(nombreE);
     }
+
+    public void eliminarExperienciasTemporales() {
+        List<Experiencia> experienciasTemporales = rExperiencia.findByTemporalTrue();
+        rExperiencia.deleteAll(experienciasTemporales);
+    }
 }

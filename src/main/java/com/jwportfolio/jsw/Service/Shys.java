@@ -42,4 +42,9 @@ public class Shys {
     public boolean existsByNombre(String nombre) {
         return rhys.existsByNombre(nombre);
     }
+
+    public void eliminarSkillsTemporales() {
+        List<hys> skillsTemporales = rhys.findByTemporalTrue();
+        rhys.deleteAll(skillsTemporales);
+    }
 }

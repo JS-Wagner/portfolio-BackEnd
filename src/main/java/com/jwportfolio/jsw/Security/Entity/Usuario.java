@@ -1,16 +1,15 @@
 package com.jwportfolio.jsw.Security.Entity;
 
+import com.jwportfolio.jsw.Entity.Educacion;
+import com.jwportfolio.jsw.Entity.Experiencia;
+import com.jwportfolio.jsw.Entity.Proyecto;
+import com.jwportfolio.jsw.Entity.hys;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 
@@ -32,6 +31,18 @@ public class Usuario {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name ="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Educacion> educaciones;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Experiencia> experiencias;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<hys> skills;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Proyecto> proyectos;
     
     //Constructores
 
@@ -94,5 +105,20 @@ public class Usuario {
     public void setRoles(Set<Rol> roles) {
         this.roles = roles;
     }
-    
+
+    public List<Educacion> getEducaciones() {return educaciones;}
+
+    public void setEducaciones(List<Educacion> educaciones) {this.educaciones = educaciones;}
+
+    public List<Experiencia> getExperiencias() {return experiencias;}
+
+    public void setExperiencias(List<Experiencia> experiencias) {this.experiencias = experiencias;}
+
+    public List<hys> getSkills() {return skills;}
+
+    public void setSkills(List<hys> skills) {this.skills = skills;}
+
+    public List<Proyecto> getProyectos() {return proyectos;}
+
+    public void setProyectos(List<Proyecto> proyectos) {this.proyectos = proyectos;}
 }

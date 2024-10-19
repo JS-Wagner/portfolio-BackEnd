@@ -35,6 +35,7 @@ C:\Users\User\Documents\GitHub\portfolio-BackEnd\portfolio-BackEnd\src\main\java
 C:\Users\User\Documents\GitHub\portfolio-BackEnd\portfolio-BackEnd\src\main\java\com\jwportfolio\jsw\Security\MainSecurity.java
 C:\Users\User\Documents\GitHub\portfolio-BackEnd\portfolio-BackEnd\src\main\java\com\jwportfolio\jsw\Security\Dto\LoginUsuario.java
 C:\Users\User\Documents\GitHub\portfolio-BackEnd\portfolio-BackEnd\src\main\java\com\jwportfolio\jsw\Security\Dto\NuevoUsuario.java
+C:\Users\User\Documents\GitHub\portfolio-BackEnd\portfolio-BackEnd\src\main\java\com\jwportfolio\jsw\Service\TemporalEntriesCleanupService.java
 C:\Users\User\Documents\GitHub\portfolio-BackEnd\portfolio-BackEnd\src\main\java\com\jwportfolio\jsw\Repository\REducacion.java
 C:\Users\User\Documents\GitHub\portfolio-BackEnd\portfolio-BackEnd\src\main\java\com\jwportfolio\jsw\Security\Service\UsuarioService.java
 C:\Users\User\Documents\GitHub\portfolio-BackEnd\portfolio-BackEnd\src\main\java\com\jwportfolio\jsw\Dto\dtoEducacion.java
