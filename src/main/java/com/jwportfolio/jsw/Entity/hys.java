@@ -1,6 +1,7 @@
 
 package com.jwportfolio.jsw.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jwportfolio.jsw.Security.Entity.Usuario;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class hys {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
+    @JsonBackReference
     private Usuario usuario; // Campo para almacenar el usuario que creó la educación
 
     public hys() {

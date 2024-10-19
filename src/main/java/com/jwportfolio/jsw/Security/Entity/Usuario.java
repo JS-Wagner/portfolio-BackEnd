@@ -1,5 +1,6 @@
 package com.jwportfolio.jsw.Security.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jwportfolio.jsw.Entity.Educacion;
 import com.jwportfolio.jsw.Entity.Experiencia;
 import com.jwportfolio.jsw.Entity.Proyecto;
@@ -33,15 +34,19 @@ public class Usuario {
     private Set<Rol> roles = new HashSet<>();
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference // Serializa esta lista
     private List<Educacion> educaciones;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference // Serializa esta lista
     private List<Experiencia> experiencias;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference // Serializa esta lista
     private List<hys> skills;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference // Serializa esta lista
     private List<Proyecto> proyectos;
     
     //Constructores
