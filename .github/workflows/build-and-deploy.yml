@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DB_URL: jdbc:mysql://usp8x2mgscsckhot:jGXzcDhP0vPFS6FI8CVe@bndwcgusqjklamjmkkgp-mysql.services.clever-cloud.com:3306/bndwcgusqjklamjmkkgp
+      DB_URL: ${{ secrets.DB_URL }}
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
